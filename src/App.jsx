@@ -10,9 +10,11 @@ import ContactUs from './Pages/ContactUs/ContactUs';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 
+
 function App() {
 
   return (
+
     <>
       
       <BrowserRouter>
@@ -35,7 +37,9 @@ function App() {
       </BrowserRouter>
 
     </>
+
   )
+
 }
 
 export default App;

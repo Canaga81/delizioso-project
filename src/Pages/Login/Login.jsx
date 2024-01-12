@@ -7,8 +7,9 @@ const Login = () => {
   return (
     <div className="w-full h-full">
       <div className="container mx-auto">
-        <div className="flex flex-col justify-between items-center lg:flex-row">
+        <div className="flex flex-col lg:justify-between gap-28 items-center lg:flex-row">
           <div className="flex flex-col gap-[50px] pl-[70px]">
+
             <div className="flex flex-col gap-[17px]">
               <h1 className="font-primary font-bold text-[#311F09] text-[40px]">
                 Login
@@ -29,9 +30,11 @@ const Login = () => {
                 Email address
               </h4>
               <input
-                className="w-[415px] rounded-[10px] font-primary h-[60px] placeholder:text-[#311F09] text-[14px] pl-3 text-[#311F09] outline-none bg-[#D0CCC7] opacity-80"
+                className="max-w-[415px] rounded-[10px] font-primary h-[60px] placeholder:text-[#311F09] text-[14px] pl-3 text-[#311F09] outline-none bg-[#D0CCC7] opacity-80"
                 type="email"
                 placeholder="Email address"
+                id="email"
+                name="email"
               />
             </div>
 
@@ -40,9 +43,11 @@ const Login = () => {
                 Password
               </h4>
               <input
-                className="w-[415px] rounded-[10px] h-[60px] font-primary placeholder:text-[#311F09] text-[14px] pl-3 text-[#311F09] outline-none bg-[#D0CCC7] opacity-80"
+                className="max-w-[415px] rounded-[10px] h-[60px] font-primary placeholder:text-[#311F09] text-[14px] pl-3 text-[#311F09] outline-none bg-[#D0CCC7] opacity-80"
                 type="password"
                 placeholder="Password"
+                id="password"
+                name="password"
               />
             </div>
 
@@ -64,14 +69,15 @@ const Login = () => {
             </div>
 
             <div className="flex flex-col gap-[20px]">
-              <button className="w-[415px] h-[60px] bg-[#FF8A00] rounded-[10px] text-[14px] text-[#fff] font-primary font-[400] hover:transition-all hover:opacity-75 delay-200">
+              <button className="max-w-[415px] h-[60px] bg-[#FF8A00] rounded-[10px] text-[14px] text-[#fff] font-primary font-[400] hover:transition-all hover:opacity-75 delay-200">
                 Log in
               </button>
-              <button className="flex items-center gap-[17px] justify-center w-[415px] h-[60px] bg-transparent border border-1 border-solid border-[#B6A38B] text-[14px] text-[#311F09] font-primary font-[400] hover:bg-slate-800 hover:text-white transition-all delay-200">
+              <button className="flex items-center gap-[17px] justify-center w-[200px] lg:w-[415px] md:w-[330px]  h-[60px] bg-transparent border border-1 border-solid border-[#B6A38B] text-[14px] text-[#311F09] font-primary font-[400] hover:bg-slate-800 hover:text-white transition-all delay-200">
                 <FaGoogle className="text-[30px]" />
                 Log in with google
               </button>
             </div>
+
           </div>
           <div>
             <div className="-mr-[39.9px]">
