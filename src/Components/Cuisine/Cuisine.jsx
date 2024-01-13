@@ -18,10 +18,10 @@ const Cuisine = () => {
               </div>
 
               <div className="flex flex-col gap-[30px]">
-                <h1 className="max-w-[288px] text-[75px] font-primary text-[#311F09] font-[700]">
+                <h1 className="max-w-[288px] text-[55px] lg:text-[75px] font-primary text-[#311F09] font-[700]">
                   Italian Cuisine
                 </h1>
-                <p className="text-[20px] text-[#5C4529] font-[400] font-primary max-w-[523px]">
+                <p className="text-[15px] lg:text-[20px] text-[#5C4529] font-[400] font-primary max-w-[523px]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Sodales senectus dictum arcu sit tristique donec eget.
                 </p>
@@ -29,13 +29,13 @@ const Cuisine = () => {
             </div>
             <div className="lg:flex lg:gap-6">
               <Link to={"/orderOnline"}>
-                <button className="mb-6 w-[200px] h-[60px] flex items-center justify-center rounded-[163px] border-none outline-none font-primary text-white text-[20px] font-[600] hover:bg-opacity-75 transition-all duration-200 bg-[#FF8A00]">
+                <button className="mb-6 w-[200px] h-[60px] flex items-center justify-center rounded-[163px] border-none outline-none font-primary text-white text-[14px] lg:text-[20px] font-[600] hover:bg-opacity-75 transition-all duration-200 bg-[#FF8A00]">
                   Order now
                 </button>
               </Link>
 
               <Link to={"/reservation"}>
-                <button className="w-[200px] h-[60px] flex items-center justify-center rounded-[163px] border-none outline-none font-primary text-white text-[20px] font-[600] hover:bg-opacity-75 transition-all duration-200 bg-[#3FA72F]">
+                <button className="w-[200px] h-[60px] flex items-center justify-center rounded-[163px] border-none outline-none font-primary text-white text-[14px] lg:text-[20px] font-[600] hover:bg-opacity-75 transition-all duration-200 bg-[#3FA72F]">
                   Reservation
                 </button>
               </Link>
