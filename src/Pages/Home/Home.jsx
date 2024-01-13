@@ -1,15 +1,12 @@
-import React from 'react';
+import React from "react";
+import Cuisine from "../../Components/Cuisine/Cuisine";
 
 const Home = () => {
-
   return (
-
-    <div>
-      Home
-    </div>
-
-  )
-
-}
+    <>
+      <Cuisine />
+    </>
+  );
+};
 
 export default Home;

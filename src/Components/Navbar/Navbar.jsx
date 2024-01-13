@@ -82,7 +82,7 @@ const Navbar = () => {
             </div>
             <div>
               <Link to={"login"}>
-                <button className="w-[112px] h-[50px] border-none outline-none text-white text-[14px] font-primary bg-[#3FA72F] rounded-[133px] hover:bg-opacity-75 transition-all delay-200">
+                <button className="w-[112px] h-[50px] border-none outline-none text-white text-[14px] font-primary bg-[#3FA72F] rounded-[133px] hover:bg-opacity-75 transition-all duration-200">
                   Log in
                 </button>
               </Link>
