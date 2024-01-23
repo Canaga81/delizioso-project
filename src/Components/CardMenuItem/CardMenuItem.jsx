@@ -4,7 +4,7 @@ const CardMenuItem = (props) => {
 
   return (
     <div className="flex items-center justify-center mt-10">
-      <div className="w-[350px] flex flex-col items-center gap-5">
+      <div className="max-w-[350px] flex flex-col items-center gap-5">
         <div>
           <div className="w-[250px] h-[250px]">
             <img className="w-full h-full rounded-full object-cover " src={props.image} alt="" />

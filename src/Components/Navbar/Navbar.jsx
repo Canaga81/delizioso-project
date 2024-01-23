@@ -4,6 +4,7 @@ import { IoCartOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 
 const Navbar = () => {
+
   const [isNavShowing, setIsNavShowing] = useState(false);
 
   const showingNav = () => {
@@ -11,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full po">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-[100px]">
           <div className="flex items-center gap-[18px]">
@@ -69,9 +70,18 @@ const Navbar = () => {
               >
                 Contact us
               </Link>
+
+              <div>
+                <Link to={"login"}>
+                  <button className="w-[112px] h-[50px] ml-4 border-none outline-none text-white text-[14px] font-primary bg-[#3FA72F] rounded-[133px] hover:bg-opacity-75 transition-all duration-200">
+                    Log in
+                  </button>
+                </Link>
+            </div>
             </ul>
           </div>
           <div className="flex items-center gap-[25px]">
+            
             <div className="relative cursor-pointer">
               <div className="w-[16px] h-[16px] bg-[#FF3838] flex justify-center items-center rounded-full text-[8px] text-white absolute -top-2 -right-2">
                 0
@@ -80,13 +90,7 @@ const Navbar = () => {
                 <IoCartOutline />
               </div>
             </div>
-            <div>
-              <Link to={"login"}>
-                <button className="w-[112px] h-[50px] border-none outline-none text-white text-[14px] font-primary bg-[#3FA72F] rounded-[133px] hover:bg-opacity-75 transition-all duration-200">
-                  Log in
-                </button>
-              </Link>
-            </div>
+            
             <div className="lg:hidden">
               <button onClick={showingNav}>
                 {isNavShowing ? (
