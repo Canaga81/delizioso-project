@@ -1,16 +1,17 @@
 import React from "react";
 
-const CardMenuItem = () => {
+const CardMenuItem = (props) => {
+
   return (
-    <div>
-      <div className="">
+    <div className="flex items-center justify-center mt-10">
+      <div className="w-[350px] flex flex-col items-center gap-5">
         <div>
-          <div>
-            <img src="" alt="" />
+          <div className="w-[250px] h-[250px]">
+            <img className="w-full h-full rounded-full object-cover " src={props.image} alt="" />
           </div>
         </div>
-        <div>
-          <h3>Spaghetti</h3>
+        <div className="flex flex-col items-center gap-4">
+          <h3 className="text-[#000] font-primary text-[30px]">{props.name}</h3>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="164"
@@ -39,14 +40,13 @@ const CardMenuItem = () => {
               fill="white"
             />
           </svg>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Egestas consequat mi eget auctor aliquam, diam. 
+          <p className="text-center text-[#59442B] text-[14px] font-normal">
+            {props.text}
           </p>
         </div>
-        <div>
-            <p>$12.05</p>
-            <button>Order now</button>
+        <div className="flex items-center gap-6">
+            <p className="font-primary text-[#000] text-[25px]">${props.price}</p>
+            <button className="w-[130px] h-[45px] bg-[#FF8A00] border-[#FF8A00] border-solid border-[1px] rounded-full text-[#fff] text-[16px] hover:bg-transparent hover:text-[#FF8A00] transition-all duration-300">Order now</button>
         </div>
       </div>
     </div>

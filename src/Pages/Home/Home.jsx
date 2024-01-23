@@ -1,7 +1,7 @@
 import React from "react";
 import Cuisine from "../../Components/Cuisine/Cuisine";
 import Welcome from "../../Components/Welcome/Welcome";
-// import CardMenuItem from "../../Components/CardMenuItem/CardMenuItem";
+import CardMenuItemsCon from "../../Components/CardMenuItemsCon/CardMenuItemsCon";
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
 
       <Cuisine />
       <Welcome />
-      {/* <CardMenuItem /> */}
+      <CardMenuItemsCon />
       
     </>
   );
