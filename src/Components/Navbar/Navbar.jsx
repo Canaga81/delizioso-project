@@ -4,7 +4,6 @@ import { IoCartOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 
 const Navbar = () => {
-
   const [isNavShowing, setIsNavShowing] = useState(false);
 
   const showingNav = () => {
@@ -12,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full po">
+    <div className="w-full sticky top-0 z-50 bg-[#fff]">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-[100px]">
           <div className="flex items-center gap-[18px]">
@@ -29,47 +28,49 @@ const Navbar = () => {
             </div>
           </div>
           <div
-            className={`lg:static lg:min-h-fit absolute lg:bg-white bg-red-400 min-h-[60vh] right-0 ${
-              isNavShowing ? "top-[100px]" : "top-[-100%]"
+            className={`lg:static lg:min-h-fit absolute lg:bg-white bg-red-400 min-h-[60vh] right-0 transition-all z-30 duration-1000 ${
+              isNavShowing ? "top-[100px] lg:translate-y-0  translate-y-[-150%]" : "top-[-100%] translate-y-[45%]"
             } lg:w-auto w-full flex items-center px-5`}
           >
-            <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[45px] gap-10">
-              <Link
-                className="text-[#311F09] font-primary hover:text-[#FF8A00] transition-all delay-150"
-                to={"/"}
-              >
-                Home
-              </Link>
-              <Link
-                className="text-[#311F09] font-primary hover:text-[#FF8A00] transition-all delay-150"
-                to={"/menu"}
-              >
-                Menu
-              </Link>
-              <Link
-                className="text-[#311F09] font-primary hover:text-[#FF8A00] transition-all delay-150"
-                to={"/aboutUs"}
-              >
-                About us
-              </Link>
-              <Link
-                className="text-[#311F09] font-primary hover:text-[#FF8A00] transition-all delay-150"
-                to={"/orderOnline"}
-              >
-                Order online
-              </Link>
-              <Link
-                className="text-[#311F09] font-primary hover:text-[#FF8A00] transition-all delay-150"
-                to={"/reservation"}
-              >
-                Reservation
-              </Link>
-              <Link
-                className="text-[#311F09] font-primary hover:text-[#FF8A00] transition-all delay-150"
-                to={"/contactUs"}
-              >
-                Contact us
-              </Link>
+            <ul className="flex flex-row lg:gap-x-[20px] items-center w-full justify-between lg:items-center lg:px-0 ">
+              <div className="flex lg:flex-row flex-col lg:items-center lg:gap-[25px] gap-10">
+                <Link
+                  className="lg:text-[#311F09] text-[#fff] font-primary hover:text-[#FF8A00] transition-all delay-150"
+                  to={"/"}
+                >
+                  Home
+                </Link>
+                <Link
+                  className="lg:text-[#311F09] text-[#fff] font-primary hover:text-[#FF8A00] transition-all delay-150"
+                  to={"/menu"}
+                >
+                  Menu
+                </Link>
+                <Link
+                  className="lg:text-[#311F09] text-[#fff] font-primary hover:text-[#FF8A00] transition-all delay-150"
+                  to={"/aboutUs"}
+                >
+                  About us
+                </Link>
+                <Link
+                  className="lg:text-[#311F09] text-[#fff] font-primary hover:text-[#FF8A00] transition-all delay-150"
+                  to={"/orderOnline"}
+                >
+                  Order online
+                </Link>
+                <Link
+                  className="lg:text-[#311F09] text-[#fff] font-primary hover:text-[#FF8A00] transition-all delay-150"
+                  to={"/reservation"}
+                >
+                  Reservation
+                </Link>
+                <Link
+                  className="lg:text-[#311F09] text-[#fff] font-primary hover:text-[#FF8A00] transition-all delay-150"
+                  to={"/contactUs"}
+                >
+                  Contact us
+                </Link>
+              </div>
 
               <div>
                 <Link to={"login"}>
@@ -77,11 +78,10 @@ const Navbar = () => {
                     Log in
                   </button>
                 </Link>
-            </div>
+              </div>
             </ul>
           </div>
           <div className="flex items-center gap-[25px]">
-            
             <div className="relative cursor-pointer">
               <div className="w-[16px] h-[16px] bg-[#FF3838] flex justify-center items-center rounded-full text-[8px] text-white absolute -top-2 -right-2">
                 0
@@ -90,56 +90,57 @@ const Navbar = () => {
                 <IoCartOutline />
               </div>
             </div>
-            
+
             <div className="lg:hidden">
               <button onClick={showingNav}>
                 {isNavShowing ? (
-                  <IoMdClose className="text-[24px]" />
-                ) : (
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <rect
-                      x="2.75"
-                      y="2.75"
-                      width="7.5"
-                      height="7.5"
-                      rx="2.25"
-                      stroke="#311F09"
-                      stroke-width="1.5"
-                    />
-                    <rect
-                      x="13.75"
-                      y="2.75"
-                      width="7.5"
-                      height="7.5"
-                      rx="2.25"
-                      stroke="#311F09"
-                      stroke-width="1.5"
-                    />
-                    <rect
-                      x="2.75"
-                      y="13.75"
-                      width="7.5"
-                      height="7.5"
-                      rx="2.25"
-                      stroke="#311F09"
-                      stroke-width="1.5"
-                    />
-                    <rect
-                      x="13.75"
-                      y="13.75"
-                      width="7.5"
-                      height="7.5"
-                      rx="3.75"
-                      stroke="#FF8A00"
-                      stroke-width="1.5"
-                    />
-                  </svg>
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <rect
+                    x="2.75"
+                    y="2.75"
+                    width="7.5"
+                    height="7.5"
+                    rx="2.25"
+                    stroke="#311F09"
+                    stroke-width="1.5"
+                  />
+                  <rect
+                    x="13.75"
+                    y="2.75"
+                    width="7.5"
+                    height="7.5"
+                    rx="2.25"
+                    stroke="#311F09"
+                    stroke-width="1.5"
+                  />
+                  <rect
+                    x="2.75"
+                    y="13.75"
+                    width="7.5"
+                    height="7.5"
+                    rx="2.25"
+                    stroke="#311F09"
+                    stroke-width="1.5"
+                  />
+                  <rect
+                    x="13.75"
+                    y="13.75"
+                    width="7.5"
+                    height="7.5"
+                    rx="3.75"
+                    stroke="#FF8A00"
+                    stroke-width="1.5"
+                  />
+                </svg>
+                  
+                ) : (
+                  <IoMdClose className="text-[24px]" />
                 )}
               </button>
             </div>
