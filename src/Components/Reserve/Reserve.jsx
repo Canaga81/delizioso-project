@@ -2,10 +2,11 @@ import React from 'react';
 import Small_Reserve_Image_1 from '../../Images/reserve_image_2.png';
 import Small_Reserve_Image_2 from '../../Images/reserve_image_1.png';
 import Big_Reserve_Image from '../../Images/reserve_big_image.png';
+import { Link } from 'react-router-dom';
 
 const Reserve = () => {
   return (
-    <div className='w-full h-full mb-28 mt-64'>
+    <div className='w-full h-full mb-28 mt-32'>
       <div className='container mx-auto'>
         <div className='flex flex-col-reverse items-center gap-16 lg:flex-row lg:items-center lg:justify-between'>
           <div className='relative'>
@@ -17,7 +18,7 @@ const Reserve = () => {
               <img className='lg:block lg:absolute lg:bottom-16 lg:left-6 lg:hover:-rotate-180 lg:transition lg:duration-1000 lg:cursor-pointer hidden' src={Small_Reserve_Image_2} alt="" />
             </div>
           </div>
-          <div>
+          <div className='flex flex-col lg:gap-[132px] gap-8'>
             <div className='flex flex-col gap-12'>
               <div className='lg:text-[75px] text-[30px] font-primary font-[600]'>
                 <h1 className='text-[#311F09]'>Let's reserve <br /> <span className='text-[#FF8A00]'>a table</span></h1>
@@ -30,7 +31,11 @@ const Reserve = () => {
                 </p>
               </div>
             </div>
-            <div></div>
+            <div>
+              <Link to={'/reservation'}>
+                <button className='text-white lg:text-[18px] text-[14px] font-primary font-normal tracking-[1.5px] bg-[#FF8A00] w-[200px] h-[60px] flex items-center justify-center rounded-[163px] border-none outline-none hover:bg-opacity-75 transition-all duration-200'>Reservation</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
