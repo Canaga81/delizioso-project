@@ -30,6 +30,7 @@ const Chef = () => {
         </div>
     </div>
   )
+  
 }
 
 export default Chef

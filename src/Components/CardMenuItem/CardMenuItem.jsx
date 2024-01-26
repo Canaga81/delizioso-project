@@ -8,7 +8,7 @@ const CardMenuItem = (product) => {
   const {addToCart} = useContext(CartContext)
 
   return (
-    <div className="flex items-center justify-center mt-10">
+    <div className="flex items-center justify-center mt-10 hover:scale-105 transition duration-300 cursor-pointer">
       <div className="max-w-[350px] flex flex-col items-center gap-5">
         <div>
           <div className="w-[250px] h-[250px]">
