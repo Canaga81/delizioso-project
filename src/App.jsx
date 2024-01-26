@@ -9,6 +9,7 @@ import Reservation from './Pages/Reservation/Reservation';
 import ContactUs from './Pages/ContactUs/ContactUs';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
+import Sidebar from './Components/Sidebar/Sidebar';
 
 
 function App() {
@@ -33,6 +34,8 @@ function App() {
           <Route path='/signup' element={<Signup />}/>
 
         </Routes>
+
+        <Sidebar />
 
       </BrowserRouter>
 

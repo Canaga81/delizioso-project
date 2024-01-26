@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, } from "react";
 import menuItemData from "../../MenuItemData";
 import CardMenuItem from "../CardMenuItem/CardMenuItem";
 import Pagination from "../Pagination/Pagination";

@@ -1,17 +1,22 @@
-import React from "react";
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
 
-const CardMenuItem = (props) => {
+const CardMenuItem = (product) => {
+
+  const {text, price, image, id, name} = product;
+
+  const {addToCart} = useContext(CartContext)
 
   return (
     <div className="flex items-center justify-center mt-10">
       <div className="max-w-[350px] flex flex-col items-center gap-5">
         <div>
           <div className="w-[250px] h-[250px]">
-            <img className="w-full h-full rounded-full object-cover " src={props.image} alt="" />
+            <img className="w-full h-full rounded-full object-cover " src={image} alt="" />
           </div>
         </div>
         <div className="flex flex-col items-center gap-4">
-          <h3 className="text-[#000] font-primary text-[30px]">{props.name}</h3>
+          <h3 className="text-[#000] font-primary text-[30px]">{name}</h3>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="164"
@@ -41,12 +46,12 @@ const CardMenuItem = (props) => {
             />
           </svg>
           <p className="text-center text-[#59442B] text-[14px] font-normal">
-            {props.text}
+            {text}
           </p>
         </div>
         <div className="flex items-center gap-6">
-            <p className="font-primary text-[#000] text-[25px]">${props.price}</p>
-            <button className="w-[130px] h-[45px] bg-[#FF8A00] border-[#FF8A00] border-solid border-[1px] rounded-full text-[#fff] text-[16px] hover:bg-transparent hover:text-[#FF8A00] transition-all duration-300">Order now</button>
+            <p className="font-primary text-[#000] text-[25px]">${price}</p>
+            <button onClick={() => addToCart(product, id)} className="w-[130px] h-[45px] bg-[#FF8A00] border-[#FF8A00] border-solid border-[1px] rounded-full text-[#fff] text-[16px] hover:bg-transparent hover:text-[#FF8A00] transition-all duration-300">Order now</button>
         </div>
       </div>
     </div>
