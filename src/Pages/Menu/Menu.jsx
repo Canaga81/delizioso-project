@@ -1,8 +1,14 @@
 import React from 'react';
+import CardMenuItemsCon from '../../Components/CardMenuItemsCon/CardMenuItemsCon';
 
 const Menu = () => {
+
+  const text = "Menu";
+
   return (
-    <div>Menu</div>
+    <>
+      <CardMenuItemsCon text={text} />
+    </>
   )
 }
 

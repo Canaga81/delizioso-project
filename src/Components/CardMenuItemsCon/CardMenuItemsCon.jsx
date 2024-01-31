@@ -3,7 +3,7 @@ import menuItemData from "../../MenuItemData";
 import CardMenuItem from "../CardMenuItem/CardMenuItem";
 import Pagination from "../Pagination/Pagination";
 
-const CardMenuItemsCon = () => {
+const CardMenuItemsCon = ({text}) => {
 
   // Menu Item'i Shop ile evez etdim (useState ile)
 
@@ -41,8 +41,8 @@ const CardMenuItemsCon = () => {
       <div className="container mx-auto">
         <div className="flex flex-col gap-16">
           <div>
-            <h1 className="text-center text-[70px] font-medium font-primary text-[#311F09]">
-              Our popular menu
+            <h1 className="text-center lg:text-[70px] font-medium font-primary text-[#311F09] text-[35px]">
+              {text}
             </h1>
           </div>
 

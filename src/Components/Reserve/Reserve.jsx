@@ -9,7 +9,7 @@ const Reserve = () => {
     <div className='w-full h-full mb-28 mt-32'>
       <div className='container mx-auto'>
         <div className='flex flex-col-reverse items-center gap-16 lg:flex-row lg:items-center lg:justify-between'>
-          <div className='relative'>
+          <div className='relative lg:block hidden'>
             <div className='py-16 px-16 bg-transparent border rounded-full flex items-center justify-center'>
               <img className='lg:block lg:absolute lg:top-16 lg:right-6 lg:hover:-rotate-180 lg:transition lg:duration-1000 lg:cursor-pointer hidden' src={Small_Reserve_Image_1} alt="" />
               <div className='py-16 px-16 rounded-full bg-[#E1C39F] flex justify-center items-center bg-opacity-20'>
