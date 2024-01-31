@@ -10,6 +10,7 @@ import ContactUs from './Pages/ContactUs/ContactUs';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import Sidebar from './Components/Sidebar/Sidebar';
+import Footer from './Components/Footer/Footer';
 
 
 function App() {
@@ -36,6 +37,8 @@ function App() {
         </Routes>
 
         <Sidebar />
+
+        <Footer />
 
       </BrowserRouter>
 
