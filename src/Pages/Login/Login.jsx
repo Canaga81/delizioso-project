@@ -1,47 +1,63 @@
-import { useState } from "react";
 import LoginSignUpImage from "../../../src/Images/login_signup_image.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const Login = () => {
 
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const [username, usernameupdate] = useState('');
+  const [password, passwordupdate] = useState('');
 
-  const [errors, setErrors] = useState({});
+  const usenavigate = useNavigate();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  useEffect(() => {
+    sessionStorage.clear()
+  }, [])
 
-  const handleSubmit = (e) => {
+  const ProcedLogin = (e) => {
     e.preventDefault();
-    const validationErrors = {};
 
-    if (!formData.email.trim()) {
-      validationErrors.email = "email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      validationErrors.email = "email is not valid";
+    if(validate()) {
+      // console.log('proceed');
+
+      fetch('http://localhost:8000/user/' + username).then((res) => {
+        return res.json();
+      }).then((resp) => {
+        console.log(resp);
+        if(Object.keys(resp).length === 0) {
+          alert('Please Enter Valid Username !');
+        }
+        else {
+          if(resp.password === password) {
+            alert('Success !');
+            sessionStorage.setItem('username', username);
+            usenavigate('/');
+          }
+          else {
+            alert('Please Enter Valid Credentials !');
+          }
+        }
+      }).catch((err) => {
+        alert('Login Failed due to :' + err.message)
+      })
+
+    }
+  }
+
+  const validate = () => {
+    let result = true;
+
+    if(username === '' || username === null) {
+      result = false;
+      alert("Please Enter Full Name !")
+    }
+    if(password === '' || password === null) {
+      result = false;
+      alert("Please Enter Password !")
     }
 
-    if (!formData.password.trim()) {
-      validationErrors.password = "password is required";
-    } else if (formData.password.length < 8) {
-      validationErrors.password = "password should be at least 8 char";
-    }
-
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length === 0) {
-      alert("Form Submitted successfully");
-    }
-  };
+    return result;
+  }
 
   return (
     <div className="w-full h-full mb-24">
@@ -63,24 +79,20 @@ const Login = () => {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-[17px]">
+            <form onSubmit={ProcedLogin}  className="flex flex-col gap-[17px]">
+
               <div className="flex flex-col gap-[15px]">
                 <label className="font-normal font-primary text-[#311F09] text-[14px]">
-                  Email address
+                  Full Name
                 </label>
                 <input
-                  className="w-[250px] lg:w-[500px] md:w-[420px]   rounded-[10px] font-primary h-[60px] placeholder:text-[#311F09] text-[14px] pl-3 text-[#311F09] outline-none bg-[#D0CCC7] opacity-80"
-                  type="email"
-                  placeholder="Email address"
-                  name="email"
+                  className="w-[250px] lg:w-[500px] md:w-[420px]  rounded-[10px] font-primary h-[60px] placeholder:text-[#311F09] text-[14px] pl-3 text-[#311F09] outline-none bg-[#D0CCC7] opacity-80"
+                  type="text"
+                  placeholder="Full Name"
                   autoComplete="off"
-                  onChange={handleChange}
+                  value={username}
+                  onChange={e => usernameupdate(e.target.value)}
                 />
-                {errors.email && (
-                  <span className="text-[red] text-[14px] tracking-[1px]">
-                    {errors.email}
-                  </span>
-                )}
               </div>
 
               <div className="flex flex-col gap-[15px]">
@@ -91,14 +103,9 @@ const Login = () => {
                   className="w-[250px] lg:w-[500px] md:w-[420px]   rounded-[10px] h-[60px] font-primary placeholder:text-[#311F09] text-[14px] pl-3 text-[#311F09] outline-none bg-[#D0CCC7] opacity-80"
                   type="password"
                   placeholder="Password"
-                  name="password"
-                  onChange={handleChange}
+                  value={password}
+                  onChange={e => passwordupdate(e.target.value)}
                 />
-                {errors.password && (
-                  <span className="text-[red] text-[14px] tracking-[1px]">
-                    {errors.password}
-                  </span>
-                )}
               </div>
 
               <div className="flex flex-col gap-4 lg:flex-row lg:justify-between lg:items-center">

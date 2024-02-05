@@ -1,54 +1,72 @@
-import { useState } from "react";
 import LoginSignUpImage from "../../../src/Images/login_signup_image.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { useState } from "react";
+// import { useState } from "react";
 
 const Signup = () => {
 
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+  const isValidate = () => {
+    let isproceed = true;
+    let errormessage = "Please enter the value in !"
 
-  const [errors, setErrors] = useState({});
+    if(id === null || id === '') {
+      isproceed = false;
+      errormessage += " Full Name";
+    }
+    if(email === null || email ==='') {
+      isproceed = false;
+      errormessage += " Email";
+    }
+    if(password === null || password === "") {
+      isproceed = false;
+      errormessage += " Password";
+    }
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    if(!isproceed) {
+      alert(errormessage);
+    }
+    else {
+      if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+
+      }
+      else {
+        isproceed = false;
+        alert("Please Enter the Valid email !");
+      }
+    }
+
+    return isproceed;
   };
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const [id, idchange] = useState("");
+  const [password, passwordchange] = useState("");
+  const [email, emailchange] = useState("");
+
+  const handlesubmit = (e) => {
     e.preventDefault();
-    const validationErrors = {};
-    if (!formData.username.trim()) {
-      validationErrors.username = "username is required";
-    }
 
-    if (!formData.email.trim()) {
-      validationErrors.email = "email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      validationErrors.email = "email is not valid";
-    }
+    let regobj = { id, email, password };
 
-    if (!formData.password.trim()) {
-      validationErrors.password = "password is required";
-    } else if (formData.password.length < 8) {
-      validationErrors.password = "password should be at least 8 char";
-    }
-
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length === 0) {
-      alert("Form Submitted successfully");
+    if (isValidate()) {
+      fetch("http://localhost:8000/user", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(regobj),
+      })
+        .then((res) => {
+          alert("SignUp Successfully :) * (: ");
+          navigate("/login");
+        })
+        .catch((err) => {
+          alert("Failed :" + err.message);
+        });
     }
   };
 
   return (
-
     <div className="w-full h-full mb-12">
       <div className="container mx-auto">
         <div className="flex flex-col lg:justify-between gap-28 items-center lg:flex-row">
@@ -68,7 +86,7 @@ const Signup = () => {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-[50px]">
+            <form className="flex flex-col gap-[50px]" onSubmit={handlesubmit}>
               <div className="flex flex-col gap-[15px]">
                 <label className="font-normal font-primary text-[#311F09] text-[14px]">
                   Full name
@@ -76,12 +94,11 @@ const Signup = () => {
                 <input
                   className="w-[250px] lg:w-[500px] md:w-[420px]  rounded-[10px] font-primary h-[60px] placeholder:text-[#311F09] text-[14px] pl-3 text-[#311F09] outline-none bg-[#D0CCC7] opacity-80"
                   type="text"
-                  name="username"
                   placeholder="Full name"
                   autoComplete="off"
-                  onChange={handleChange}
+                  value={id}
+                  onChange={(e) => idchange(e.target.value)}
                 />
-                {errors.username && <span className="text-[red] text-[14px] tracking-[1px]">{errors.username}</span>}
               </div>
 
               <div className="flex flex-col gap-[15px]">
@@ -92,11 +109,10 @@ const Signup = () => {
                   className="w-[250px] lg:w-[500px] md:w-[420px]   rounded-[10px] font-primary h-[60px] placeholder:text-[#311F09] text-[14px] pl-3 text-[#311F09] outline-none bg-[#D0CCC7] opacity-80"
                   type="email"
                   placeholder="Email address"
-                  name="email"
                   autoComplete="off"
-                  onChange={handleChange}
+                  value={email}
+                  onChange={(e) => emailchange(e.target.value)}
                 />
-                {errors.email && <span className="text-[red] text-[14px] tracking-[1px]">{errors.email}</span>}
               </div>
 
               <div className="flex flex-col gap-[15px]">
@@ -107,10 +123,9 @@ const Signup = () => {
                   className="w-[250px] lg:w-[500px] md:w-[420px]   rounded-[10px] h-[60px] font-primary placeholder:text-[#311F09] text-[14px] pl-3 text-[#311F09] outline-none bg-[#D0CCC7] opacity-80"
                   type="password"
                   placeholder="Password"
-                  name="password"
-                  onChange={handleChange}
+                  value={password}
+                  onChange={(e) => passwordchange(e.target.value)}
                 />
-                {errors.password && <span className="text-[red] text-[14px] tracking-[1px]">{errors.password}</span>}
               </div>
 
               <div className="flex justify-between items-start">
@@ -131,7 +146,10 @@ const Signup = () => {
               </div>
 
               <div className="flex flex-col gap-[20px]">
-                <button type="submit" className="w-[250px] lg:w-[500px] md:w-[420px] h-[60px] bg-[#FF8A00] rounded-[10px] text-[14px] text-[#fff] font-primary font-[400] hover:transition-all hover:opacity-75 duration-200">
+                <button
+                  type="submit"
+                  className="w-[250px] lg:w-[500px] md:w-[420px] h-[60px] bg-[#FF8A00] rounded-[10px] text-[14px] text-[#fff] font-primary font-[400] hover:transition-all hover:opacity-75 duration-200"
+                >
                   Log in
                 </button>
                 <button className="flex items-center gap-[17px] justify-center md:w-[420px] w-[250px] lg:w-[500px] h-[60px] bg-transparent border border-1 border-solid border-[#B6A38B] text-[14px] text-[#311F09] font-primary font-[400] hover:bg-slate-800 hover:text-white transition-all duration-200">
@@ -153,7 +171,6 @@ const Signup = () => {
         </div>
       </div>
     </div>
-    
   );
 };
 
