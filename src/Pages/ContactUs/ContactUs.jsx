@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Form from '../../Components/Form/Form';
 import { useNavigate } from 'react-router-dom';
+import Map from '../../Components/Map/Map';
 
 const ContactUs = () => {
 
@@ -19,6 +20,7 @@ const ContactUs = () => {
   return (
     <>
       <Form /> 
+      <Map />
     </>
   )
 }
