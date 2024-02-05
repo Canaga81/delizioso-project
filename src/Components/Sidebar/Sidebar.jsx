@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 
 //! Import Icons
 import { IoMdArrowForward } from "react-icons/io";
@@ -9,8 +9,10 @@ import SidebarCartItem from "../SidebarCartItem/SidebarCartItem";
 import { SidebarContext } from "../../Context/SidebarContext";
 
 import { CartContext } from "../../Context/CartContext";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
+
   const { isOpen, handleClose } = useContext(SidebarContext);
   const { cart, total, clearCart, itemAmount } = useContext(CartContext);
 
@@ -55,7 +57,9 @@ const Sidebar = () => {
         </div>
 
         <div>
-          <button className="bg-[#3FC66E] text-[#fff] text-[20px] tracking-[1.5px] rounded-[15px] w-[200px] h-[45px] hover:bg-opacity-80 transition duration-300">Checkout</button>
+          <Link to={'/checkout'}>
+            <button className="bg-[#3FC66E] text-[#fff] text-[20px] tracking-[1.5px] rounded-[15px] w-[200px] h-[45px] hover:bg-opacity-80 transition duration-300">Checkout</button>
+          </Link>
         </div>
       </div>
     </div>

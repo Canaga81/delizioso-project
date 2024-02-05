@@ -11,6 +11,7 @@ import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Footer from "./Components/Footer/Footer";
+import CheckOut from "./Pages/CheckOut/CheckOut";
 
 function App() {
   
@@ -29,6 +30,7 @@ function App() {
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/checkout" element={<CheckOut />} />
         </Routes>
 
         <Sidebar />
