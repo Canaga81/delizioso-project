@@ -1,22 +1,22 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import Form from '../../Components/Form/Form';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import Map from '../../Components/Map/Map';
 import { motion } from 'framer-motion';
 
 const ContactUs = () => {
 
-  const usenavigate = useNavigate()
+  // const usenavigate = useNavigate()
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    let username = sessionStorage.getItem('username')
+  //   let username = sessionStorage.getItem('username')
 
-    if(username === '' || username === null) {
-      usenavigate('/login')
-    }
+  //   if(username === '' || username === null) {
+  //     usenavigate('/login')
+  //   }
 
-  }, [])
+  // }, [])
 
   return (
     <motion.div 

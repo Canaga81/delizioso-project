@@ -1,23 +1,23 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import CardMenuItemsCon from '../../Components/CardMenuItemsCon/CardMenuItemsCon';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const OrderOnline = () => {
 
   const text = "Menu";
 
-  const usenavigate = useNavigate()
+  // const usenavigate = useNavigate()
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    let username = sessionStorage.getItem('username')
+  //   let username = sessionStorage.getItem('username')
 
-    if(username === '' || username === null) {
-      usenavigate('/login')
-    }
+  //   if(username === '' || username === null) {
+  //     usenavigate('/login')
+  //   }
 
-  }, [])
+  // }, [])
 
   return (
     <motion.div 
