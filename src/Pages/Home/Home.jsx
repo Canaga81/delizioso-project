@@ -13,7 +13,7 @@ const Home = () => {
 
   const text = "Our popular menu";
 
-  const usenavigate = useNavigate()
+  const usenavigate = useNavigate();
 
   useEffect(() => {
     
