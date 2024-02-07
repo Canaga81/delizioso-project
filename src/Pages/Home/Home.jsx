@@ -9,6 +9,7 @@ import Time from "../../Components/Time/Time";
 // import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 
+
 const Home = () => {
 
   const text = "Our popular menu";
