@@ -5,25 +5,25 @@ import Reserve from "../../Components/Reserve/Reserve";
 import Chef from "../../Components/Chef/Chef";
 import Customers from "../../Components/Customers/Customers";
 import Time from "../../Components/Time/Time";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 
 const Home = () => {
 
   const text = "Our popular menu";
 
-  const usenavigate = useNavigate();
+  // const usenavigate = useNavigate();
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    let username = sessionStorage.getItem('username')
+  //   let username = sessionStorage.getItem('username')
 
-    if(username === '' || username === null) {
-      usenavigate('/login')
-    }
+  //   if(username === '' || username === null) {
+  //     usenavigate('/login')
+  //   }
 
-  }, [])
+  // }, [])
 
 
   return (
